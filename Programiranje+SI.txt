@@ -1,0 +1,66 @@
+1. #include<iostream>
+#include<string>
+using namespace std;
+
+void gime(string ime, string prezime, string djevprez, string gradr){
+//Ovdje se vrsi unos imena i grada rodenja a ispisuju se 3 slova imena i 2 slova grada rodenja
+
+string fname,bcity,swname;
+fname=ime.substr(0,3);
+bcity=gradr.substr(0,2);
+swname=fname+bcity;
+//Vrši se slican slucaj samo što se koristi 2 slova djevojackog prezimena majke i 3 grada rodenja
+string surname, gradrod, swsurname;
+surname=djevprez.substr(0,2);
+gradrod=gradr.substr(0,3);
+swsurname=surname+gradrod;
+cout<<"Vase StarWars ime je:"<<swname<<" "<<swsurname<<endl;
+}
+int main()
+{
+  //Ovdje se vrsi unos nasih informacija
+  string ime,prezime,djevprez,gradr;
+  cout<<"Unesi ime:"<<endl;
+  cin>>ime;
+  cout<<"Unesi prezime:"<<endl;
+  cin>>prezime;
+  cout<<"Unesi djevojacko prezime majke:"<<endl;
+  cin>>djevprez;
+  cout<<"Unesi grad u kojem si rodjen:"<<endl;
+  cin>>gradr;
+  cout<<endl;
+  gime(ime, prezime, djevprez, gradr);
+}
+
+2. #include<iostream>
+using namespace std;
+void racFunkcije(int x, int y)
+{
+  int r, br;
+  br=0;
+  for(int i=x;i<y+1;i++){
+    br+=1;
+    r=i*i+2*i-5;
+    cout<<"Rjesenje ["<<br<<"] broj gdje je vrijednost X["<<i<<"] = "<<r<<endl;
+  }
+}
+int main()
+{
+  //Ovdje se vrsi unos velicine opsega
+  int x, y;
+  unesi:
+  cout<<"Unesi pocetak opsega: "<<endl;
+  cin>>x;
+  cout<<"Unesi kraj opsega: "<<endl;
+  cin>>y;
+  if(x>y || x==y){
+    cout<<"Pocetak ne moze bit manji od kraja opsega. Unesi ponovo!"<<endl;
+    cout<<endl;
+  //U slucaju da je kraj veci od pocetka opsega, onda se ponovo unose podaci
+    goto unesi;
+  }
+  else{
+    racFunkcije(x,y);
+  }
+return 0;
+}
